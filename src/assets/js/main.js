@@ -901,14 +901,17 @@ const arrayNamePokemon = [
     "spectrier",
     "calyrex"
 ]
+const historialList = document.getElementById("historial");
+const clearHistorial = document.getElementById("clear-historial");
+let historial
 modalButton[0].addEventListener('click', function () {
     button.disabled = true
     button.innerHTML = "Buscar"
     button.className = button.className.replace(/btn-success/g, " btn-primary")
 })
 button.addEventListener('click', function () {
-    fullDataModal
     input[0].value = ''
+    showHistorial(historial)
 })
 input[0].addEventListener('input', function (e) {
     isNaN(e.data) === true
@@ -934,6 +937,7 @@ async function useApi() {
         button.innerHTML = "Ver pokémon"
         button.className = button.className.replace(/btn-primary/g, " btn-success")
         const json = await response.json()
+        historial = json
         fullDataModal(json)
     } catch (error) {
         console.log(error)
@@ -955,4 +959,21 @@ function fullDataModal(json = null) {
     for (let i = 0; i < json.types.length; i++) {
         typesPokemon[0].innerHTML += `<li>${json.types[i].type.name}</li>`
     }
+
 }
+
+window.addEventListener("DOMContentLoaded", function () {
+    const historial = localStorage.getItem("historial");
+    historialList.innerHTML = historial;
+});
+
+function clearHistorialFn() {
+    localStorage.clear();
+    historialList.innerHTML = "";
+}
+function showHistorial(json) {
+    historialList.innerHTML += `<li class="list-group-item">Id: ${json.id} - Nombre: ${json.name}</li>`;
+    localStorage.setItem("historial", historialList.innerHTML);
+}
+
+clearHistorial.addEventListener("click", clearHistorialFn);
