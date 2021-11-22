@@ -901,12 +901,12 @@ const arrayNamePokemon = [
     "spectrier",
     "calyrex"
 ]
-const historialList = document.getElementById("historial");
+const historialList = document.getElementsByClassName("historial");
 const clearHistorial = document.getElementById("clear-historial");
 let historial
 modalButton[0].addEventListener('click', function () {
     button.disabled = true
-    button.innerHTML = "Buscar"
+    button.innerHTML = `<i class="fas fa-search"></i>`
     button.className = button.className.replace(/btn-success/g, " btn-primary")
 })
 button.addEventListener('click', function () {
@@ -919,10 +919,9 @@ input[0].addEventListener('input', function (e) {
         : null;
     if ((arrayNamePokemon.filter(pokemon => pokemon == input[0].value.toLowerCase())).length == 0) {
         button.disabled = true
-        button.innerHTML = "Buscar"
+        button.innerHTML = `<i class="fas fa-search"></i>`
         button.className = button.className.replace(/btn-success/g, " btn-primary")
     }
-
 })
 function searchPokemon() {
     (arrayNamePokemon.filter(pokemon => pokemon == input[0].value.toLowerCase())).length == 1
@@ -934,7 +933,7 @@ async function useApi() {
     try {
         const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + input[0].value.toLowerCase())
         button.disabled = false
-        button.innerHTML = "Ver pokémon"
+        button.innerHTML = `<i class="far fa-check-circle"></i>`
         button.className = button.className.replace(/btn-primary/g, " btn-success")
         const json = await response.json()
         historial = json
@@ -964,16 +963,18 @@ function fullDataModal(json = null) {
 
 window.addEventListener("DOMContentLoaded", function () {
     const historial = localStorage.getItem("historial");
-    historialList.innerHTML = historial;
+    historialList[0
+    ].innerHTML = historial;
 });
 
 function clearHistorialFn() {
     localStorage.clear();
-    historialList.innerHTML = "";
+    historialList[0].innerHTML = "";
 }
 function showHistorial(json) {
-    historialList.innerHTML += `<li class="list-group-item">Id: ${json.id} - Nombre: ${json.name}</li>`;
-    localStorage.setItem("historial", historialList.innerHTML);
+    historialList[0].innerHTML += `<li><a class="dropdown-item" href="#">Id: ${json.id} - Nombre: ${json.name}</a></li>`;
+    console.log(historialList[0])
+    localStorage.setItem("historial", historialList[0].innerHTML);
 }
 
 clearHistorial.addEventListener("click", clearHistorialFn);

@@ -10,36 +10,40 @@
     <link rel="shortcut icon" href="src/assets/img/pokebola.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-3">
+            <div class="col-12 center">
                 <img src="src/assets/img/logo.png" class="img-pokebola" alt="pokebola">
             </div>
-            <div class="col-6 input-group mb-3">
-                <input type="text" class="form-control search-pokemon" placeholder="Busca tu pokémon" />
-            </div>
-            <div class="col-3">
-                <button data-toggle="modal" data-target="#exampleModal" id="button-search" class="btn btn-primary"
-                    disabled>
-                    Buscar</button>
+        </div>
+        <div class="row">
+            <div class="col-12 center input-group mb-3">
+                <div class="input">
+                    <input type="text" class="form-control search-pokemon" placeholder="Busca tu pokémon" />
+                    <button data-toggle="modal" data-target="#exampleModal" id="button-search" class="btn btn-primary"
+                        disabled>
+                        <i class="fas fa-search"></i></button>
+                </div>
             </div>
         </div>
     </div>
-    <hr>
+    <br>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-3"></div>
-            <div class="col-3">
-                <h4>Historial de búsqueda</h4>
-                <ul id="historial" class="list-group">
-                </ul>
-            </div>
-            <div class="col-1"></div>
-            <div class="col-2">
-                <button id="clear-historial" class="btn btn-secondary">LIMPIAR HISTORIAL</button>
+            <div class="col-12 center">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                        Historial de búsqueda
+                    </button>
+                    <ul  class="dropdown-menu historial" aria-labelledby="dropdownMenuButton1">   
+                    </ul>
+                </div>
+                <button id="clear-historial" class="btn btn-secondary"><i class="far fa-trash-alt"></i></button>
             </div>
         </div>
     </div>
