@@ -31,3 +31,14 @@ body{
 #dropdownMenuButton{
     margin-right: 10px;
 }
+.fondo-pokebola{ 
+    position: absolute;
+    z-index: -1;
+    opacity: .19;
+    width: 55%;
+    display: flex;
+    top: -120px;
+    align-items: center;
+    vertical-align: middle;
+    align-content: center;
+}
