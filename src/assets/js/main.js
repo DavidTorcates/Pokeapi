@@ -903,8 +903,10 @@ const arrayNamePokemon = [
 ]
 const historialList = document.getElementsByClassName("historial");
 const clearHistorial = document.getElementById("clear-historial");
-let historial
+let historial, typePokemon;
 modalButton[0].addEventListener('click', function () {
+    imgPokemon[0].className = imgPokemon[0].className.replace(` ${typePokemon}`,"") 
+    console.log(imgPokemon[0].className)
     button.disabled = true
     button.innerHTML = `<i class="fas fa-search"></i>`
     button.className = button.className.replace(/btn-success/g, " btn-primary")
@@ -949,11 +951,14 @@ const detailsPokemon = document.getElementsByClassName("details-pokemon")
 const typesPokemon = document.getElementsByClassName("type-pokemon")
 
 function fullDataModal(json = null) {
-    titleModalName.innerHTML = "Nombre: " + json.name.charAt(0).toUpperCase() + json.name.slice(1)
+    titleModalName.innerHTML = json.name.charAt(0).toUpperCase() + json.name.slice(1)
     imgPokemon[0].src = json.sprites.other.dream_world.front_default
     detailsPokemon[0].innerHTML = `<p>Número de pokémon: ${json.order}</p> 
     <p> Experiencia: ${json.base_experience}</p>
     `
+    typePokemon = json.types[0].type.name
+    imgPokemon[0].className = imgPokemon[0].className + ` ${typePokemon}`
+    console.log(imgPokemon[0].className)
     typesPokemon[0].innerHTML = ""
     for (let i = 0; i < json.types.length; i++) {
         typesPokemon[0].innerHTML += `<li>${json.types[i].type.name}</li>`
@@ -973,7 +978,6 @@ function clearHistorialFn() {
 }
 function showHistorial(json) {
     historialList[0].innerHTML += `<li><a class="dropdown-item" href="#">Id: ${json.id} - Nombre: ${json.name}</a></li>`;
-    console.log(historialList[0])
     localStorage.setItem("historial", historialList[0].innerHTML);
 }
 

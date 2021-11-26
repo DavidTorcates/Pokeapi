@@ -42,3 +42,50 @@ body{
     vertical-align: middle;
     align-content: center;
 }
+.modal-button-close{
+    font-size: 30px !important;
+    padding:5px !important;
+    margin: 0px;
+    width: fit-content;
+    margin-left: 92%;
+    border-radius: 10px;
+    background: rgba(214, 214, 214, 0.231);
+}
+.title-card{
+    position: relative;
+    bottom: 30px;
+}
+.dropdown-menu{
+    overflow-y: auto;
+    max-height: 215px;
+}
+.bug, .grass{
+    background: #96ff33e0 !important;
+}
+.electric{
+    background: #fdec2ee7 !important;
+}
+.fire{
+    background: #ff2f2fd7 !important;
+}
+.water{
+    background: #46caffd4 !important;
+}
+.poison{
+    background: #e153fdd7 !important;
+}
+.ground{
+    background: #b85321de !important;
+}
+.fairy{
+    background: #ff5ddce9 !important;
+}
+.fighting{
+    background: #f7863ae3 !important;
+}
+.rock{
+    background: #BEBCBB !important;
+}
+.psychic{
+    background: #FF4CF7 !important;
+}

@@ -38,10 +38,11 @@
         <div class="row">
             <div class="col-12 center">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-expanded="false">
                         Historial de búsqueda
                     </button>
-                    <ul  class="dropdown-menu historial" aria-labelledby="dropdownMenuButton1">   
+                    <ul class="dropdown-menu historial" aria-labelledby="dropdownMenuButton1">
                     </ul>
                 </div>
                 <button id="clear-historial" class="btn btn-secondary"><i class="far fa-trash-alt"></i></button>
@@ -51,14 +52,16 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
+                <i  type="button" class="far fa-times-circle modal-button-close"
+                    data-dismiss="modal" class=""></i>
+                <div class="modal-body color">
+                    <div class="container-fluid">
+                        <div class="title-card">
+                            <h4 class="modal-title text-center" id="exampleModalLabel"></h4>
+                        </div>
                         <div class="row">
-                            <div class="col">
-                                <img src="" class="img-pokemon" alt="" srcset="">
+                            <div class="col ">
+                                <img src="" class="img-pokemon card-img-pokemon" alt="" srcset="">
                             </div>
                             <div class="col ">
                                 <div class="details-pokemon"></div>
@@ -71,9 +74,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary modal-button-close"
-                        data-dismiss="modal">Cerrar</button>
+                <div>
+                    <!-- <button type="button" class="btn btn-primary modal-button-close"
+                        data-dismiss="modal">Cerrar</button> -->
                 </div>
             </div>
         </div>
